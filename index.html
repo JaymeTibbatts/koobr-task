@@ -21,6 +21,8 @@
         <!-- Stylesheets -->
         <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 
+        
+
 </head>
 
 <body>
@@ -104,14 +106,17 @@
                                 <h4 class="py-5 primary ">Now there's Time to manage everything.</h4>
 
                                 <div class="video-container">
-                                        <img src="./assets/images/video-bg.png" class="img-fluid" alt="247 Time Video" />
+                                        <img src="./assets/images/video-bg.png" class="img-fluid"
+                                                alt="247 Time Video" />
                                         <img src="./assets/images/play-button.png" class="play-btn" alt="Play Video" />
                                 </div>
 
                                 <h4 class="py-3">Time for a Free assessment?</h4>
-                                <p class="py-3">Put 247 Time to the test and let us demonstrate saving across you NHS Trust, in no time at all.</p>
+                                <p class="py-3">Put 247 Time to the test and let us demonstrate saving across you NHS
+                                        Trust, in no time at all.</p>
 
-                                <button class="btn btn-block bg-primary text-uppercase text-white w-75 m-auto" >Start your 247 Time test now</button>
+                                <button class="btn btn-block bg-primary text-uppercase text-white w-75 m-auto">Start
+                                        your 247 Time test now</button>
                         </div>
                 </div>
 
@@ -155,8 +160,8 @@
                                 </div>
                         </div>
 
-                        <p class="px-5 py-2 mx-3">247 Time works seemlessly within your NHS Trust to analyse, clean-up
-                                abd consolidate key data to remove any costly discrepancies. Ensuring your organisation
+                        <p class="p-5">247 Time works seemlessly within your NHS Trust to analyse, clean-up
+                                and consolidate key data to remove any costly discrepancies. Ensuring your organisation
                                 operates efficiently and effectively, while enforcing regulations and best practices.
                         </p>
                 </div>
@@ -165,15 +170,63 @@
 
         </div>
 
-        <div class="container">
+        <div class="container-fluid bg-dark text-white py-3">
+
+                <div class="row text-center w-75 m-auto">
+                        <div class="col">
+                                <h4 class="pt-5 pb-3">Time for a Free assessment?</h4>
+                                <p>Trial 247 Time in your NHS Trust now. We'll perform an analysis for your key data,
+                                        showing
+                                        exactly where 247 Time can have your organisation running like clockwork.</p>
+                                <p>Contact us to start your free trial</p>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                                <form novalidate class="needs-validation">
+                                        <div class="form-group">
+
+                                                <input class="form-control" id="name" placeholder="Name" required>
+
+                                        </div>
+                                        <div class="form-group">
+                                                <input type="email" class="form-control" id="email" placeholder="Email"
+                                                        required>
+                                        </div>
+                                        <div class="form-group">
+                                                <input type="tel" pattern="([0-9]{5}) [0-9]{6}" class="form-control"
+                                                        id="telephone" placeholder="Telephone Number" required>
+                                                <div class="invalid-feedback">
+                                                        Format (01234) 123456
+                                                </div>
+                                        </div>
+
+                                </form>
 
 
+                        </div>
+                        <div class="col">
+                                <div class="form-group">
+                                        <textarea class="form-control" id="message" rows="3"
+                                                placeholder="Message"></textarea>
+                                </div>
+                                <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                </div>
 
         </div>
 
         <!-- Javascript -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
                 integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
                 crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
                 integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
