@@ -1,0 +1,49 @@
+h4 {
+    font-weight: 400;
+}
+
+.bg-primary {
+    background: #238AE9 !important;
+}
+
+.primary {
+    color: #238AE9;
+}
+.nav-item .nav-link {
+    font-size: 1.1em
+}
+
+.hero h1 {
+    font-size: 3.5em;
+    margin-left: 25%;
+}
+
+.hero {
+
+}
+
+.sub-hero h2 {
+    font-size: 2em;
+}
+
+.sub-hero {
+    padding: 75px 10% 75px 10%;
+}
+
+.expertise .col .img-container{
+    background: #238AE9;
+    border-radius: 100px;
+    height: 200px;
+    width: 200px;
+    padding: 55px 0;
+    margin: auto;
+}
+
+
+.play-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
