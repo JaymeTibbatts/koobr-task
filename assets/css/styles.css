@@ -1,9 +1,6 @@
 * {
     font-family: 'Open Sans', sans-serif;
-}
-
-h4 {
-    font-weight: 400;
+    font-size: 1rem;
 }
 
 .bg-primary {
@@ -13,21 +10,24 @@ h4 {
 .primary {
     color: #238AE9;
 }
-.nav-item .nav-link {
-    font-size: 1.1em
+
+.hero .col{
+    background-image: url("../images/paperwork.png");
+    display: block;
+    height: 200px;
+    background-size: 45%;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-origin: border-box;
 }
 
-.hero h1 {
-    font-size: 3.5em;
-    margin-left: 25%;
+.hero p {
+    font-size: 1.5rem;
 }
 
-.sub-hero h2 {
-    font-size: 2em;
-}
-
-.sub-hero {
-    padding: 75px 10% 75px 10%;
+.sub-hero .lead {
+    font-weight: 300;
+    font-size: 1.1rem;
 }
 
 .expertise .col .img-container{
@@ -39,27 +39,94 @@ h4 {
     margin: auto;
 }
 
-
-.play-btn {
+.btn-container {
     cursor: pointer;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position:absolute;
+    left:50%;
+    top:50%;
+    max-width: 20%;
     transform: translate(-50%, -50%);
 }
 
-.g-recaptcha, .form-control {
-    background: #343A40 !important; 
+.video-container {
+    position: relative;
+    display: inline;
 }
 
 .form-control , form .btn{
     border-radius: 0px !important;
 }
 
+.form-control {
+    background: #343A40 !important; 
+}
+
 .footer {
     background: #191b1e;
 }
 
+.footer a, form a {
+    font-size: 0.8rem;
+}
+
 #map {
     height: 275px;
+    margin-bottom: 20px;
 }
+
+.g-recaptcha {transform: scale(0.8); transform-origin: left top;}
+
+/* Bootstrap SM */
+@media (min-width: 576px) { 
+ 
+      
+ }
+
+/* Bootstrap MD */
+@media (min-width: 768px) { 
+    
+
+}
+
+/* Bootstrap LG */
+@media (min-width: 992px) { 
+
+    .hero p {
+        font-size: 3rem;
+    }
+
+    .sub-hero .lead {
+        font-size: 1.8rem;
+    }
+
+    .hero .col{
+        height: 400px;
+    }
+
+    
+    .nav-link {
+        font-size: 80%;
+    }
+    
+}
+
+/* Bootstrap XL */
+@media (min-width: 1200px) { 
+    .g-recaptcha {
+        transform: scale(70%); 
+        transform-origin: left top;
+    }
+
+    .nav-link {
+        font-size: 100%;
+    }
+
+    .hero p {
+        font-size: 3.5rem;
+    }
+    
+
+    .sub-hero .lead {
+        font-size: 2rem;
+    }
+ }
