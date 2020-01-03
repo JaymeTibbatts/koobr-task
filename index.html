@@ -232,23 +232,23 @@
                                         <p class="pt-3 pb-3 text-center">Contact us to start your free trial
                                         </p>
 
-                                        <form novalidate class="needs-validation">
+                                        <form novalidate class="needs-validation" action="mail.php">
                                                 <div class="row">
                                                         <div class="col-sm-12 col-xl-6">
                                                                 <div class="form-group small">
 
                                                                         <input class="form-control py-3" id="name"
-                                                                                placeholder="Name" required>
+                                                                                placeholder="Name" name="name" required>
 
                                                                 </div>
                                                                 <div class="form-group">
                                                                         <input type="email" class="form-control py-3"
-                                                                                id="email" placeholder="Email" required>
+                                                                                id="email" placeholder="Email" name="email" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                         <input type="tel" pattern="[0-9]{5} [0-9]{6}"
                                                                                 class="form-control py-3 "
-                                                                                id="telephone"
+                                                                                id="telephone" name="telephone"
                                                                                 placeholder="Telephone Number" required>
                                                                         <div class="invalid-feedback">
                                                                                 Format (01234) 123456
@@ -260,7 +260,7 @@
                                                         <div class="col-sm-12 col-xl-6">
                                                                 <div class="form-group">
                                                                         <textarea class="form-control pt-2" id="message"
-                                                                                rows="6"
+                                                                                rows="6" name="message"
                                                                                 placeholder="Message"></textarea>
                                                                 </div>
 
@@ -278,7 +278,7 @@
                                                         <div class="col-sm-12 col-md-6">
                                                                 <div class="form-group form-check pl-4 pt-2">
                                                                         <input type="checkbox" class="form-check-input"
-                                                                                id="privacy-check">
+                                                                                id="privacy-check" value="agree" name="privacy-check">
                                                                         <label class="form-check-label small"
                                                                                 for="privacy-check">By
                                                                                 submitting
