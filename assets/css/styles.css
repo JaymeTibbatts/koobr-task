@@ -59,7 +59,10 @@
 
 .form-control {
     background: #343A40 !important; 
+    color: white !important;
+    font-weight: 300;
 }
+
 
 .footer {
     background: #191b1e;
