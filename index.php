@@ -4,7 +4,7 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
@@ -28,8 +28,8 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
 
         <script src="https://www.google.com/recaptcha/api.js " async defer></script>
 
-        <link rel="shortcut icon" href="\images\favicon.ico" type="image/x-icon">
-        <link rel="icon" href="\images\favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 
 
 
@@ -196,7 +196,6 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
                 </div>
 
         </div>
-        </div>
         <div class="container-fluid bg-dark text-white py-3 sub-footer">
                 <div class="container">
                         <div class="row text-center m-auto">
@@ -210,7 +209,7 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
                                                 exactly where 247 Time can have your organisation running like
                                                 clockwork.</p>
                                 </div>
-                                </p>
+                                
                         </div>
 
                         <div class="row m-auto">
@@ -284,7 +283,7 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
                                                                 <div class="form-group">
                                                                         <textarea class="form-control pt-2" id="message"
                                                                                 rows="6" name="message"
-                                                                                placeholder="Message" type="text"
+                                                                                placeholder="Message"
                                                                                 required></textarea>
                                                                 </div>
 
@@ -342,7 +341,6 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
 
                                                         </div>
                                                 </div>
-                                </div>
                                 </form>
                                 <?php
                                         $response = "";
@@ -391,7 +389,7 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
 
 
         </div>
-        </div>
+        
         <div class="container-fluid footer pt-3">
 
                 <div class="row">
