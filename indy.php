@@ -239,15 +239,15 @@ ob_start();
                                         </p>
 
                                         <?php
-                                                if( isset($_SESSION['Sent']) )
-                                                {
-                                                        echo "<p style=\"color: #28a745;
-                                                        font-size: 80%;text-align:center\">" . $_SESSION['Sent'] . "</p>";
-                                                
-                                                        unset($_SESSION['Sent']);
-                                                
-                                                } 
-                                                ?>
+                                                                                if( isset($_SESSION['Sent']) )
+                                                                                {
+                                                                                        echo "<p style=\"color: #28a745;
+                                                                                        font-size: 80%;\">" . $_SESSION['Sent'] . "</p>";
+                                                                                
+                                                                                        unset($_SESSION['Sent']);
+                                                                                
+                                                                                } 
+                                                                                ?>
 
                                         <form class="needs-validation"
                                                 action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "#sub-footer";?>"
@@ -295,8 +295,8 @@ ob_start();
                                                                                 data-sitekey="6LdsXMsUAAAAALmHFpIr9V_IKUpdZ4GhItY8kVFj">
                                                                         </div>
                                                                         <?php
-                                                                                if( isset($_SESSION['Error']) ){
-                                                                                        
+                                                                                if( isset($_SESSION['Error']) )
+                                                                                {
                                                                                         echo "<p style=\"color: #dc3545;
                                                                                         font-size: 80%;\">" . $_SESSION['Error'] . "</p>";
                                                                                 
@@ -341,41 +341,38 @@ ob_start();
                                                 </div>
                                 </form>
                                 <?php
-                                        
+                                        $response = "";
                                         //Verify Response - Help from: https://www.kaplankomputing.com/blog/tutorials/recaptcha-php-demo-tutorial/
-                                        $response = "" ;       
+                                        $url = 'https://www.google.com/recaptcha/api/siteverify';
                                         if(isset($_POST["g-recaptcha-response"])){
                                                 $response = $_POST["g-recaptcha-response"];
                                         }
+                                            if(isset($response)){ 
+                                                echo $response;
+                                            }
                                         
-                                        $url = 'https://www.google.com/recaptcha/api/siteverify';
                                         $data = array(
                                                 'secret' => '6LdsXMsUAAAAAJ-vZQjjA2mS-zAQ4cFfps-qdo5o',
                                                 'response' => $response
                                         );
-
                                         $options = array(
                                                 'http' => array (
-                                                        'content' => http_build_query($data),
-                                                        'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
-                                                        'method' => 'POST'
-                                                )
+                                                'content' => http_build_query($data),
+                                                'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
+                                                'method' => 'POST'
+                                        )
                                         );
-
                                         $context  = stream_context_create($options);
                                         $verify = file_get_contents($url, false, $context);
-                                        $captcha_success=json_decode($verify);
-
+                                        $captcha_success=json_decode($verify); 
+                                        
                                         if ($captcha_success->success==false) {
                                                 $_SESSION['Error'] = "Please complete the reCAPTCHA.";
                                             } else if ($captcha_success->success==true) {
-                                                
-                                                $_SESSION['Sent'] = "Email sent!";
                                                 include('mail.php');
+                                                $_SESSION['Sent'] = "Email sent!";
                                                 
                                         }
-                                
-
                                 ?>
 
                         </div>
@@ -452,5 +449,6 @@ ob_start();
 
 </html>
 <?php
+session_destroy();
 ob_end_flush();
 ?>

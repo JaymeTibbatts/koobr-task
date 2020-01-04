@@ -63,7 +63,8 @@ $headers .= "Cc:  $email" . "\r\n";
 
         if($mail){
             //echo "Message accepted";
-            header("Location: http://jaymetibbatts.com/portfolio/koobr-task/index.php");
+            header("Location: http://jaymetibbatts.com/portfolio/koobr-task/index.php#sub-footer");
+            exit;
         } else {
             //echo "Error: Message not accepted";
         }
