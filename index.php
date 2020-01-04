@@ -28,8 +28,8 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
 
         <script src="https://www.google.com/recaptcha/api.js " async defer></script>
 
-        <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="\images\favicon.ico" type="image/x-icon">
+        <link rel="icon" href="\images\favicon.ico" type="image/x-icon">
 
 
 
@@ -86,7 +86,8 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
                 <div class="container">
                         <div class="row">
                                 <div class="col">
-                                        <p class="display-4 float-left font-weight-bold text-white py-3 px-2 mt-3 w-50">
+                                        <p
+                                                class="display-4 float-left font-weight-bold align-middle text-white py-3 px-2 mt-3 w-50">
                                                 Managing your
                                                 flexible workforce is
                                                 so much better, when you have Time.
@@ -117,7 +118,7 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
         <div class="container-fluid">
                 <div class="container">
 
-                        <div class="row text-center">
+                        <div class="row text-center ">
                                 <div class="col">
                                         <p class="mt-3 pt-4 pb-3 primary h5">Now there's Time to manage everything.</p>
                                         <div class="video-container">
@@ -251,18 +252,20 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
                                                                                 } 
                                                                                 ?>
 
-                                        <form class="needs-validation" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" novalidate>
+                                        <form class="needs-validation"
+                                                action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
+                                                method="POST" novalidate>
                                                 <div class="row">
                                                         <div class="col-sm-12 col-xl-6">
                                                                 <div class="form-group small">
 
-                                                                        <input class="form-control py-3" id="name" type="text"
-                                                                                placeholder="Name" name="name" required>
+                                                                        <input class="form-control py-3" id="name"
+                                                                                type="text" placeholder="Name"
+                                                                                name="name" required>
 
                                                                 </div>
                                                                 <div class="form-group">
-                                                                        <input class="form-control py-3"
-                                                                                type="text"
+                                                                        <input class="form-control py-3" type="text"
                                                                                 id="email" placeholder="Email"
                                                                                 name="email" required>
 
@@ -281,8 +284,7 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
                                                                 <div class="form-group">
                                                                         <textarea class="form-control pt-2" id="message"
                                                                                 rows="6" name="message"
-                                                                                placeholder="Message"
-                                                                                type="text"
+                                                                                placeholder="Message" type="text"
                                                                                 required></textarea>
                                                                 </div>
 
@@ -295,7 +297,7 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
                                                                         <div class="g-recaptcha img-fluid"
                                                                                 data-sitekey="6LdsXMsUAAAAALmHFpIr9V_IKUpdZ4GhItY8kVFj">
                                                                         </div>
-                                                                                <?php
+                                                                        <?php
                                                                                 if( isset($_SESSION['Error']) )
                                                                                 {
                                                                                         echo "<p style=\"color: #dc3545;
@@ -408,8 +410,7 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
         <!-- Javascript -->
         <script src="assets/js/scripts.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-                integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-                crossorigin="anonymous"></script>
+                integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
                 integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
                 crossorigin="anonymous"></script>
