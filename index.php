@@ -409,8 +409,10 @@ header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
 
         <!-- Javascript -->
         <script src="assets/js/scripts.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-                integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+        <script src="assets/js/jquery-3.4.1.slim.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+                integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script> -->
+
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
                 integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
                 crossorigin="anonymous"></script>
