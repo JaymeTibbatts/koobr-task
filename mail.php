@@ -4,33 +4,33 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-if(isset( $_GET['name']))
-$name = $_GET['name'];
-$name = mysql_real_escape_string($name);
+$name = "";
+$email = "";
+$tel = "";
+$message = "";
+$subject = "";
+$txt = "";
+$mail = "";
 
-if(isset( $_GET['email']))
-$email = $_GET['email'];
-$email = mysql_real_escape_string($email);
+if(isset( $_POST['name']))
+$name = $_POST['name'];
+$name = stripslashes($name);
 
-if(isset( $_GET['telephone']))
-$tel = $_GET['telephone'];
-$tel = mysql_real_escape_string($tel);
+if(isset( $_POST['email']))
+$email = $_POST['email'];
+$email = stripslashes($email);
 
-if(isset( $_GET['message']))
-$message = $_GET['message'];
-$message = mysql_real_escape_string($message);
+if(isset( $_POST['telephone']))
+$tel = $_POST['telephone'];
+$tel = stripslashes($tel);
 
-$to = "_mainaccount@jaymetibbatts.com";
+if(isset( $_POST['message']))
+$message = $_POST['message'];
+$message = stripslashes($message);
+
+$to = "sub@jaymetibbatts.com";
 $subject = $name . " is interested in a Free Trial.";
 $txt = str_replace("\n.", "\n..", $message);
-
-
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From: $email" . "\r\n";
-
-$mail;
-
 
 $message = "
 <html>
@@ -50,16 +50,24 @@ $message = "
 </html>
 ";
 
-if( empty($_POST["privacy-check"]) ) { 
-    echo "Checkbox was left unchecked."; 
-} else { 
-    $mail = mail($to, $subject, $message, $headers);
-}
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .= "From: $email" . "\r\n";
+$headers .= "Cc:  $email" . "\r\n";
 
-if($mail){
-    //echo "Message accepted";
-    header("Location: http://jaymetibbatts.com/done.html");
-} else {
-    //echo "Error: Message not accepted";
-}
+    if( empty($_POST["privacy-check"]) ) { 
+        echo "Checkbox was left unchecked."; 
+        
+    } else { 
+        $mail = mail($to, $subject, $message, $headers);
+
+        if($mail){
+            //echo "Message accepted";
+            header("Location: http://jaymetibbatts.com/portfolio/koobr-task/index.php");
+        } else {
+            //echo "Error: Message not accepted";
+        }
+        
+    }
+
 ?>

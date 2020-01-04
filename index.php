@@ -1,3 +1,8 @@
+<?php session_start(); ?>
+<?php
+header('Location: http://www.jaymetibbatts.com/portfolio/koobr-task');
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -22,6 +27,9 @@
         <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 
         <script src="https://www.google.com/recaptcha/api.js " async defer></script>
+
+        <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
 
 
 
@@ -232,19 +240,32 @@
                                         <p class="pt-3 pb-3 text-center">Contact us to start your free trial
                                         </p>
 
-                                        <form novalidate class="needs-validation" action="mail.php" method="POST">
+                                        <?php
+                                                                                if( isset($_SESSION['Sent']) )
+                                                                                {
+                                                                                        echo "<p style=\"color: #28a745;
+                                                                                        font-size: 80%;\">" . $_SESSION['Sent'] . "</p>";
+                                                                                
+                                                                                        unset($_SESSION['Sent']);
+                                                                                
+                                                                                } 
+                                                                                ?>
+
+                                        <form class="needs-validation" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" novalidate>
                                                 <div class="row">
                                                         <div class="col-sm-12 col-xl-6">
                                                                 <div class="form-group small">
 
-                                                                        <input class="form-control py-3" id="name"
+                                                                        <input class="form-control py-3" id="name" type="text"
                                                                                 placeholder="Name" name="name" required>
 
                                                                 </div>
                                                                 <div class="form-group">
-                                                                        <input type="email" class="form-control py-3"
+                                                                        <input class="form-control py-3"
+                                                                                type="text"
                                                                                 id="email" placeholder="Email"
                                                                                 name="email" required>
+
                                                                 </div>
                                                                 <div class="form-group">
                                                                         <input type="tel"
@@ -260,7 +281,9 @@
                                                                 <div class="form-group">
                                                                         <textarea class="form-control pt-2" id="message"
                                                                                 rows="6" name="message"
-                                                                                placeholder="Message"></textarea>
+                                                                                placeholder="Message"
+                                                                                type="text"
+                                                                                required></textarea>
                                                                 </div>
 
 
@@ -272,13 +295,23 @@
                                                                         <div class="g-recaptcha img-fluid"
                                                                                 data-sitekey="6LdsXMsUAAAAALmHFpIr9V_IKUpdZ4GhItY8kVFj">
                                                                         </div>
+                                                                                <?php
+                                                                                if( isset($_SESSION['Error']) )
+                                                                                {
+                                                                                        echo "<p style=\"color: #dc3545;
+                                                                                        font-size: 80%;\">" . $_SESSION['Error'] . "</p>";
+                                                                                
+                                                                                        unset($_SESSION['Error']);
+                                                                                
+                                                                                } 
+                                                                                ?>
                                                                 </div>
                                                         </div>
                                                         <div class="col-sm-12 col-md-6">
                                                                 <div class="form-group form-check pl-4 pt-2">
                                                                         <input type="checkbox" class="form-check-input"
                                                                                 id="privacy-check" value="agree"
-                                                                                name="privacy-check">
+                                                                                name="privacy-check" required>
                                                                         <label class="form-check-label small"
                                                                                 for="privacy-check">By
                                                                                 submitting
@@ -293,6 +326,9 @@
                                                                                         class="primary font-weight-bold">Privacy
                                                                                         Policy</a> for more
                                                                                 information.</label>
+                                                                        <div class="invalid-feedback">
+                                                                                You must agree before submitting.
+                                                                        </div>
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -306,7 +342,45 @@
                                                 </div>
                                 </div>
                                 </form>
+                                <?php
+                                        $response = "";
+                                        //Verify Response - Help from: https://www.kaplankomputing.com/blog/tutorials/recaptcha-php-demo-tutorial/
+                                        $url = 'https://www.google.com/recaptcha/api/siteverify';
 
+                                        if(isset($_POST["g-recaptcha-response"])){
+                                                $response = $_POST["g-recaptcha-response"];
+                                        }
+                                            if(isset($response)){ 
+                                                echo $response;
+                                            }
+                                        
+
+                                        $data = array(
+                                                'secret' => '6LdsXMsUAAAAAJ-vZQjjA2mS-zAQ4cFfps-qdo5o',
+                                                'response' => $response
+                                        );
+
+                                        $options = array(
+                                                'http' => array (
+                                                'content' => http_build_query($data),
+                                                'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
+                                                'method' => 'POST'
+                                        )
+                                        );
+
+                                        $context  = stream_context_create($options);
+                                        $verify = file_get_contents($url, false, $context);
+                                        $captcha_success=json_decode($verify); 
+                                        
+                                        if ($captcha_success->success==false) {
+                                                $_SESSION['Error'] = "Please complete the reCAPTCHA.";
+
+                                            } else if ($captcha_success->success==true) {
+                                                include('mail.php');
+                                                $_SESSION['Sent'] = "Email sent!";
+                                                
+                                        }
+                                ?>
 
                         </div>
                 </div>
@@ -347,6 +421,35 @@
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzE5XSbRwaFHlPqlIjuGTt1BenXF-4vg8&callback=initMap"
                 async defer></script>
+
+        <script>
+                // Example starter JavaScript for disabling form submissions if there are invalid fields
+                (function () {
+                        'use strict';
+                        window.addEventListener('load', function () {
+                                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                var forms = document.getElementsByClassName('needs-validation');
+                                // Loop over them and prevent submission
+                                var validation = Array.prototype.filter.call(forms, function (
+                                        form) {
+                                        form.addEventListener('submit',
+                                                function (event) {
+                                                        if (form.checkValidity() ===
+                                                                false) {
+                                                                event
+                                                                        .preventDefault();
+                                                                event
+                                                                        .stopPropagation();
+                                                        }
+                                                        form.classList
+                                                                .add(
+                                                                        'was-validated'
+                                                                );
+                                                }, false);
+                                });
+                        }, false);
+                })();
+        </script>
 
 </body>
 
